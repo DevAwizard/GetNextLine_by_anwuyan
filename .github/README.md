@@ -42,3 +42,28 @@ Understand the Requirements: Carefully read the project guidelines and objective
   - Usage of your libft in this project.
   - Usage of lseek.
   - Usage of global variables.
+
+Any doubts?
+- New concept --> static variables
+
+## 2. Main objetive
+
+The primary goal of the get_next_line function is to **read and return the next available line of text from a file specified by a file descriptor (fd)**. This is done by reading the file line by line. Here are some key points about the purpose and operation of get_next_line:
+
+- **Read Line by Line**: It allows programs that use it to read a text file line by line, which is especially useful for large files or for reading from standard input (stdin), where it is not desirable or efficient to read the entire file at once.
+
+- **Efficiency in Reading**: It is designed to be efficient by trying to read the smallest amount of data possible on each call, which helps to reduce memory usage and processing time, especially with large files.
+
+- **Buffer Use**: The function uses a buffer size defined by BUFFER_SIZE to read data from the file. This buffer is a crucial part of how get_next_line manages data reading, allowing flexibility in the amount of data read in each read operation.
+
+- **Flexibility**: The ability to compile the program with different values for BUFFER_SIZE offers flexibility, allowing the function to be adjusted to optimize reading efficiency based on the specific needs of the application or system resources.
+
+- **Practical Applications**: get_next_line is useful in a variety of situations, such as reading configuration files line by line, processing log files, reading user input in interactive programs, or as part of more complex text processing tools.
+
+In summary, get_next_line is a versatile and efficient tool for reading text files line by line, providing a solid foundation for a wide range of applications that require linear text processing.
+
+
+
+
+
+
