@@ -4,6 +4,10 @@ A comprehensive documentation roadmap for a project outlines a structured plan t
 It ensures thorough documentation of proposals, plans, progress, and performance, culminating in a detailed report for review. 
 This roadmap enhances transparency, accountability, and project success, facilitating smooth execution and evaluation.
 
+Table of contents
+
+## 1. Read the Subject
+
 
 ## 1. Read the Subject
 
