@@ -94,6 +94,13 @@ The project should compile with the usual flags and -D BUFFER_SIZE. It must comp
 #### Tests
 
 - Provide a main function that tests the return value of get_next_line. It must return NULL in case of an error, or the read line -with a \n at the end (except for the last line of a file if it doesn't end with a \n).
+
+```bash
+gcc -Wall -Wextra -Werror -D BUFFER_SIZE=1 get_next_line.c get_next_line_utils.c
+
+./a.out | cat -e
+```
+
 - Test with various BUFFER_SIZE values (large > 1024, small < 8 and 1, exactly the size of the line being read, variance of one byte (+/-) from the line size).
 - Read from stdin and a file.
 - Handle long lines (> 2000 characters), short lines (< 4 characters, including single characters), and empty lines.
@@ -119,3 +126,6 @@ The development of Get Next Line was a comprehensive learning experience that en
 ## Conclusion
 
 The Get Next Line project stands as a testament to the learning journey at 42. Through this project, I have not only advanced my technical skills but also developed a meticulous approach to problem-solving and project development. This documentation serves as a record of the challenges overcome and the knowledge gained, showcasing my progression in the 42 curriculum.
+
+
+---
