@@ -89,7 +89,15 @@ The project should compile with the usual flags and -D BUFFER_SIZE. It must comp
 #### Error Management
 
 - Conduct tests for error handling by passing an arbitrary file descriptor that cannot be read (e.g., 42) to get_next_line, which should return NULL.
-- Check error management for read and malloc.
+
+```c
+string = get_next_line(fd); // Instead of fd write a 42
+	printf("Primera llamada %s", string);
+	free(string);
+```
+
+- Check error management for read and malloc where you use these two functions.
+
 
 #### Tests
 
@@ -101,8 +109,35 @@ gcc -Wall -Wextra -Werror -D BUFFER_SIZE=1 get_next_line.c get_next_line_utils.c
 ./a.out | cat -e
 ```
 
-- Test with various BUFFER_SIZE values (large > 1024, small < 8 and 1, exactly the size of the line being read, variance of one byte (+/-) from the line size).
+- Test with various BUFFER_SIZE values:
+
+**large > 1024**
+```bash
+gcc -Wall -Wextra -Werror -D BUFFER_SIZE=2000 get_next_line.c get_next_line_utils.c
+```
+
+**small < 8 and 1**
+```bash
+gcc -Wall -Wextra -Werror -D BUFFER_SIZE=6 get_next_line.c get_next_line_utils.c
+```
+
+**exactly the size of the line being read**
+```bash
+gcc -Wall -Wextra -Werror -D BUFFER_SIZE=Write_here_the_exact_size get_next_line.c get_next_line_utils.c
+```
+
+**variance of one byte (+/-) from the line size**
+```bash
+gcc -Wall -Wextra -Werror -D BUFFER_SIZE=Depend_of_the_previous_digit_Write_here_the_exact_size get_next_line.c get_next_line_utils.c
+```
+
 - Read from stdin and a file.
+```c
+string = get_next_line(fd); // Instead of fd write a 0
+	printf("Primera llamada %s", string);
+	free(string);
+```
+
 - Handle long lines (> 2000 characters), short lines (< 4 characters, including single characters), and empty lines.
 
 #### Bonus
