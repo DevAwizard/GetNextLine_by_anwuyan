@@ -1,69 +1,76 @@
-# Step-by-Step Guide to Documenting a GNL Project Roadmap
+# Get next line (GNL) Documentation
 
-A comprehensive documentation roadmap for a project outlines a structured plan to document each phase, from initiation to presentation to evaluators. 
-It ensures thorough documentation of proposals, plans, progress, and performance, culminating in a detailed report for review. 
-This roadmap enhances transparency, accountability, and project success, facilitating smooth execution and evaluation.
+<img src="https://img.shields.io/badge/42-%23000000.svg?&style=for-the-badge&logo=42&logoColor=white" /> <img 
 
-Table of contents
+# Table of Contents
 
-## 1. Read the Subject
+1. [Introduction](#introduction)
+   - [Purpose and significance of the GNL project](#purpose-and-significance-of-the-gnl-project)
+2. [Project Overview](#project-overview)
+   - [What GNL is and its role in the 42 curriculum](#what-gnl-is-and-its-role-in-the-42-curriculum)
+3. [Compliance with 42 Norms](#compliance-with-42-norms)
+   - [Importance of coding standards and preparation steps to ensure compliance](#importance-of-coding-standards-and-preparation-steps-to-ensure-compliance)
+4. [Chronological Development Process](#chronological-development-process)
+   - [Initial Planning: Research and setup](#initial-planning-research-and-setup)
+   - [Development Phases: Detailed account of coding, testing, and debugging phases](#development-phases-detailed-account-of-coding-testing-and-debugging-phases)
+   - [Challenges and Solutions: Specific challenges encountered and how they were addressed](#challenges-and-solutions-specific-challenges-encountered-and-how-they-were-addressed)
+5. [Evaluation Preparation](#evaluation-preparation)
+   - [Steps taken to ensure the project meets 42's evaluation criteria](#steps-taken-to-ensure-the-project-meets-42s-evaluation-criteria)
+6. [Learning Outcomes](#learning-outcomes)
+   - [Technical and personal growth experienced through the project](#technical-and-personal-growth-experienced-through-the-project)
+7. [Conclusion](#conclusion)
+   - [Reflection on the project and its impact](#reflection-on-the-project-and-its-impact)
+8. [Appendices](#appendices)
+   - [Additional resources, code snippets, and acknowledgments](#additional-resources-code-snippets-and-acknowledgments)
 
+## Introduction
 
-## 1. Read the Subject
+The Get Next Line (GNL) project is an essential part of the 42 School curriculum designed to challenge students by requiring them to create a C function that reads any valid file, line by line, until the end. This project not only tests students' understanding of file descriptors and static variables in C but also serves as a cornerstone for more complex projects that involve file manipulation and data processing.
 
-Understand the Requirements: Carefully read the project guidelines and objectives. Make sure you understand the expected outcomes, the scope of the project, and any specific requirements.
+## Project Overview
 
-### Mandatory Part Requirements:
-- Function Name: get_next_line
-- Prototype: char *get_next_line(int fd);
-- Files to Submit: get_next_line.c, get_next_line_utils.c, get_next_line.h
-- Parameters: fd: The file descriptor from which to read.
-- Return Value:
-  - On success: The line that has been read.
-  - On failure or when the reading has completed: NULL.
-- Authorized Functions: read, malloc, free.
-- Description: Write a function that returns a line read from a file descriptor.
+GNL is about developing a function that efficiently manages memory and reads from a file descriptor. It's a project that epitomizes the journey of learning, implementing, and mastering low-level programming nuances. Adhering to the 42 norms, the project pushes students to write clean, maintainable, and efficient code, laying a strong foundation for their future as software engineers.
 
-- Additional considerations include:
+### Compliance with 42 Norms
 
-  - Repeatedly calling your get_next_line function in a loop allows you to read the content of the file pointed to by the file descriptor line by line until the end.
-  - The function should return the line that has just been read. If there is nothing more to read or an error occurs, it should return NULL.
-  - Ensure your function behaves properly when reading from a file and when reading from stdin.
-  - The returned line must end with a newline character ('\n'), except if it is the end of the file and this does not end with a newline character.
-  - In the header get_next_line.h, you must have at least the prototype of the get_next_line function.
-  - Add all the helper functions you need in the file get_next_line_utils.c.
-  - Your program must compile with the flag -D BUFFER_SIZE=xx, which will be used to determine the buffer size for your get_next_line(). This parameter will be modified by your evaluators and Moulinette to test your program. You must be able to compile your project with and without the -D BUFFER_SIZE flag along with the usual flags. You can choose the default value you prefer.
-  - Compilation example (using a buffer size of 42 as an example): cc -Wall -Werror -Wextra -D BUFFER_SIZE=42 <files>.c.
-  get_next_line() is considered to have undefined behavior if the file pointed to by the fd has changed since the last call unless read() has reached the end of the file.
-  - Reading from a binary file is considered undefined behavior for get_next_line(), but you may implement a logical workaround for this issue if you wish.
-  - Your get_next_line function should attempt to read as little as possible each time it is called. If you find a newline, you should return the current line. Do not read the entire file and then process each line.
+The 42 School norms are a set of coding standards that emphasize clarity, organization, and memory management. From the outset, ensuring compliance with these norms was paramount. This involved regular use of the Norminette tool to check the code and adhering to strict naming conventions and file organization practices.
 
-### Prohibited:
-  - Usage of your libft in this project.
-  - Usage of lseek.
-  - Usage of global variables.
+## Chronological Development Process
 
-Any doubts?
-- New concept --> static variables
+### Initial Planning
 
-## 2. Main objetive
+The project began with an extensive research phase, focusing on understanding file descriptors, static variables, and buffer management. This phase was crucial for laying the groundwork for the project's structure and approach.
 
-The primary goal of the get_next_line function is to **read and return the next available line of text from a file specified by a file descriptor (fd)**. This is done by reading the file line by line. Here are some key points about the purpose and operation of get_next_line:
+### Development Phases
 
-- **Read Line by Line**: It allows programs that use it to read a text file line by line, which is especially useful for large files or for reading from standard input (stdin), where it is not desirable or efficient to read the entire file at once.
+The journey of developing the Get Next Line project was both challenging and rewarding, marked by several phases of planning, execution, and refinement. Here’s a closer look at each step:
 
-- **Efficiency in Reading**: It is designed to be efficient by trying to read the smallest amount of data possible on each call, which helps to reduce memory usage and processing time, especially with large files.
+### Initial Planning
 
-- **Buffer Use**: The function uses a buffer size defined by BUFFER_SIZE to read data from the file. This buffer is a crucial part of how get_next_line manages data reading, allowing flexibility in the amount of data read in each read operation.
+**Research**: The first step was a deep dive into understanding how file descriptors work in Unix-like systems and the intricacies of static variables in C. This research phase was crucial for grasping the core concepts needed to tackle the project.
 
-- **Flexibility**: The ability to compile the program with different values for BUFFER_SIZE offers flexibility, allowing the function to be adjusted to optimize reading efficiency based on the specific needs of the application or system resources.
+**Design**: With a solid understanding of the project requirements, the next step was to outline a design that would not only meet the functionality demands but also adhere to the 42 norms. This involved sketching out the function prototype, determining the necessary helper functions, and planning for memory management and error handling.
 
-- **Practical Applications**: get_next_line is useful in a variety of situations, such as reading configuration files line by line, processing log files, reading user input in interactive programs, or as part of more complex text processing tools.
+### Development Phases
 
-In summary, get_next_line is a versatile and efficient tool for reading text files line by line, providing a solid foundation for a wide range of applications that require linear text processing.
+**Basic Implementation**: The coding journey began with implementing a basic version of Get Next Line that could read from a file and handle simple inputs. This phase focused on getting a minimal viable product up and running.
 
+**Incremental Enhancements**: After establishing a basic implementation, the focus shifted to enhancing the function's efficiency, handling edge cases, and ensuring robust error handling. Each enhancement went through a cycle of coding, testing, and reviewing.
 
+**Memory Management**: A significant portion of the development process was dedicated to ensuring efficient and leak-free memory management. This involved meticulous testing and the use of tools like Valgrind to detect and resolve memory leaks.
 
+### Challenges and Solutions
 
+**Handling Edge Cases**: One of the most challenging aspects was dealing with various edge cases, such as empty files or files with exceptionally long lines. Solutions involved thorough testing and iterative adjustments to the logic.
 
+**Memory Leak Prevention**: Ensuring that the project was free from memory leaks required a disciplined approach to memory allocation and deallocation. The challenge was met by adopting a systematic testing regimen and leveraging debugging tools.
 
+**Norm Compliance**: Staying compliant with the 42 norms throughout the development process was challenging but essential. This was addressed by regularly running the Norminette tool and refining the code as needed.
+
+## Learning Outcomes
+
+The development of Get Next Line was a comprehensive learning experience that enhanced my understanding of file reading operations, memory management, and the importance of coding standards. Each challenge faced was an opportunity for growth, pushing me to develop more robust and efficient code.
+
+## Conclusion
+
+The Get Next Line project stands as a testament to the learning journey at 42. Through this project, I have not only advanced my technical skills but also developed a meticulous approach to problem-solving and project development. This documentation serves as a record of the challenges overcome and the knowledge gained, showcasing my progression in the 42 curriculum.
