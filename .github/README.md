@@ -99,6 +99,9 @@ Now, let's visualize the process of reading this file using get_next_line.
 
 ## Visual example
 
+
+[![Video Thumbnail](https://media.istockphoto.com/id/953970566/photo/making-a-child-responsible.jpg?s=612x612&w=0&k=20&c=tJ0eNQWncIFEkiADgwtNle8u54cYIVq04NC2mVrCpTY=)](https://ai.invideo.io/watch/B7wehUMGnXB)
+
 ### Initial State: Preparing to Clean (Read)
 
 - File Content (Our Room):
@@ -144,4 +147,9 @@ End of file.
 
 ### Room (File) Is Now Clean
 All lines have been read and returned by get_next_line. The process is visualized as cleaning a room by picking up toys (characters) until the room is completely clean (the file is fully read).
+
+
+---
+
+
 
