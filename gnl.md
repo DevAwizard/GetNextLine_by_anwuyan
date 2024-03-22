@@ -7,9 +7,6 @@ This documentation outlines the journey of developing the Get Next Line (GNL) pr
 ## Main challenges
 Manage memory and read operations efficiently
 
-# Table of Contents
-
-
 
 ## 1. Project Understanding and Initial Planning
 
@@ -72,6 +69,82 @@ This requirement underscored the importance of flexible and dynamic memory manag
 Your function prototype, char *get_next_line(int fd), indicates that your function will take a file descriptor (fd) as an argument and return a string representing the next line read from that file descriptor, or NULL if there's nothing more to read or an error occurs.
 
 ![image](https://github.com/DevAwizard/GetNextLine_anwuyan/assets/153505451/8e74a918-4ed4-4ba1-b86d-857db2b4a3c7)
+
+### Step 2: Underestand the pseudocode
+
+#### Initial Setup:
+- Room (File): A messy room with toys scattered all over the floor. Each toy represents a character in the file you're reading from.
+- Box (Buffer): You have a box where you'll collect toys. This is akin to the buffer where you temporarily store characters until you find a newline character.
+- Cleaning Process (Reading): You start at one end of the room and begin picking up toys, moving systematically until you've cleaned up a complete line.
+
+Imagine we have a text file with the following content:
+
+```bash
+Hello, world!
+This is a test.
+End of file.
+```
+
+Now, let's visualize the process of reading this file using get_next_line.
+
+
+## Step-by-Step Visualization:
+1. Start Cleaning (Reading from File): You begin at the door, picking up toys (characters) one at a time.
+2. Finding a Break (Newline Character): As you clean, you're looking for a specific toy (the newline character \n). This represents the end of a line in your file.
+  - If you find this toy, you've completed cleaning a line. You put all the toys (characters) you've collected into a box (buffer), mark the spot, and prepare to return the box's contents.
+  - If the room is clean (end of file) but you haven't found this specific toy, you still return all toys collected so far because it's the end of the file.
+3. Returning the Box (Returning the Line): Once you've collected all toys up to the specific toy (newline) or reached the end of the room (file), you return the box (a string of characters/line) to outside the room (the caller of the function).
+4. Preparing for the Next Round (Static Variable): You mark where you stopped cleaning so that next time you start cleaning (calling get_next_line again), you begin right where you left off. This ensures that you don't start from the beginning of the room (file) again or miss any toys (characters).
+5. Repeat Until Clean (EOF): Continue this process, cleaning one line at a time, until the room is entirely clean (the file has been completely read).
+
+## Visual example
+
+### Initial State: Preparing to Clean (Read)
+
+- File Content (Our Room):
+```bash
+Hello, world!
+This is a test.
+End of file.
+```
+- Buffer (Our Box): Empty
+- Static Variable (Our Memory of Where We Left Off): Not used yet
+
+### First Call to get_next_line
+- Start reading characters (picking up toys) until we encounter a \n (a special toy indicating a line break).
+- Reading: H e l l o , w o r l d ! \n
+- Buffer after Reading: Hello, world!\n
+- Returned Line: "Hello, world!\n"
+- Static Variable: Remembers position after the \n, ready to start from "This is a test." next time.
+
+### Room State After First Clean
+
+```bash
+(This is a test.
+End of file.
+```
+### Second Call to get_next_line
+- Continue from where we left off, starting at "This is a test."
+- Reading: T h i s i s a t e s t . \n
+- Buffer after Reading: This is a test.\n
+- Returned Line: "This is a test.\n"
+- Static Variable: Now at the start of "End of file."
+
+### Room State After Second Clean
+```bash
+(End of file.)
+```
+
+### Third Call to get_next_line
+- Starting at "End of file."
+- Reading: E n d o f f i l e .
+- Buffer after Reading: End of file. (Note: No newline character at the end because it's the end of the file.)
+- Returned Line: "End of file." (Without a newline character because it's the end.)
+- Static Variable: Indicates there's nothing more to read.
+
+### Room (File) Is Now Clean
+All lines have been read and returned by get_next_line. The process is visualized as cleaning a room by picking up toys (characters) until the room is completely clean (the file is fully read).
+
 
 
 ---
