@@ -43,14 +43,16 @@ Emphasis was placed on understanding the requirements for managing the buffer si
   - Usage of lseek.
   - Usage of global variables.
 
-
 ## 2. Environment Setup
 
 ### Tools and Environment
 
 The initial step in setting up the environment involved creating the essential files required for the project: `get_next_line.c`, `get_next_line_utils.c`, and `get_next_line.h`. 
+
 This setup was critical for organizing the project's codebase and ensuring that each component of the program was modular and manageable. 
+
 Additionally, the development environment was prepared to facilitate efficient coding and testing. This preparation included configuring a development workspace, which, depending on the project's needs, might involve using a virtual machine, setting up a local development environment on a personal computer, or utilizing cloud-based development environments. 
+
 Installing necessary compilers and ensuring the development tools were up to date were key steps in this process, setting the stage for seamless project development and testing.
 
 ### Compilation Flags
@@ -87,7 +89,6 @@ End of file.
 
 Now, let's visualize the process of reading this file using get_next_line.
 
-
 ## Step-by-Step Visualization:
 1. Start Cleaning (Reading from File): You begin at the door, picking up toys (characters) one at a time.
 2. Finding a Break (Newline Character): As you clean, you're looking for a specific toy (the newline character \n). This represents the end of a line in your file.
@@ -112,34 +113,34 @@ End of file.
 
 ### First Call to get_next_line
 - Start reading characters (picking up toys) until we encounter a \n (a special toy indicating a line break).
-- Reading: H e l l o , w o r l d ! \n
-- Buffer after Reading: Hello, world!\n
-- Returned Line: "Hello, world!\n"
-- Static Variable: Remembers position after the \n, ready to start from "This is a test." next time.
+- Reading: `H e l l o , w o r l d ! \n`
+- Buffer after Reading: `Hello, world!\n`
+- Returned Line: `"Hello, world!\n"`
+- Static Variable: Remembers position after the `\n`, ready to start from `"This is a test."` next time.
 
 ### Room State After First Clean
 
 ```bash
-(This is a test.
+This is a test.
 End of file.
 ```
 ### Second Call to get_next_line
-- Continue from where we left off, starting at "This is a test."
-- Reading: T h i s i s a t e s t . \n
-- Buffer after Reading: This is a test.\n
-- Returned Line: "This is a test.\n"
-- Static Variable: Now at the start of "End of file."
+- Continue from where we left off, starting at `"This is a test."`
+- Reading: `T h i s i s a t e s t . \n`
+- Buffer after Reading: `This is a test.\n`
+- Returned Line: `"This is a test.\n"`
+- Static Variable: Now at the start of `"End of file."`
 
 ### Room State After Second Clean
 ```bash
-(End of file.)
+End of file.
 ```
 
 ### Third Call to get_next_line
-- Starting at "End of file."
-- Reading: E n d o f f i l e .
-- Buffer after Reading: End of file. (Note: No newline character at the end because it's the end of the file.)
-- Returned Line: "End of file." (Without a newline character because it's the end.)
+- Starting at `"End of file."`
+- Reading: `E n d o f f i l e`.
+- Buffer after Reading: `End of file`. (Note: No newline character at the end because it's the end of the file.)
+- Returned Line: `"End of file."` (Without a newline character because it's the end.)
 - Static Variable: Indicates there's nothing more to read.
 
 ### Room (File) Is Now Clean
