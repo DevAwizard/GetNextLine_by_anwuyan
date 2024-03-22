@@ -99,9 +99,6 @@ Now, let's visualize the process of reading this file using get_next_line.
 
 ## Visual example
 
-
-[![Video Thumbnail](https://media.istockphoto.com/id/953970566/photo/making-a-child-responsible.jpg?s=612x612&w=0&k=20&c=tJ0eNQWncIFEkiADgwtNle8u54cYIVq04NC2mVrCpTY=)](https://ai.invideo.io/watch/B7wehUMGnXB)
-
 ### Initial State: Preparing to Clean (Read)
 
 - File Content (Our Room):
@@ -148,6 +145,14 @@ End of file.
 ### Room (File) Is Now Clean
 All lines have been read and returned by get_next_line. The process is visualized as cleaning a room by picking up toys (characters) until the room is completely clean (the file is fully read).
 
+
+In addition, I just made a fun video where I explain how reading a file line by line works in programming, using a cool example called get_next_line. Imagine your computer is cleaning up a messy room, where each piece of mess is a piece of text from a file. Each time it cleans, it picks up the mess line by line until the room is all tidy - that's basically what get_next_line does with reading files!
+
+I've used simple illustrations and animations to show you this process, making it super easy and fun to understand, especially if you're just getting started with coding or if you love seeing ideas come to life visually. By the end of the video, you'll get how this neat function remembers where it stopped cleaning, so it can start right back up in the right spot next time.
+
+So, if you're curious about how files are read by a program, or just love a good visual story, check out my video. I promise it'll make learning about coding a little bit more fun!
+
+[![Video Thumbnail](https://media.istockphoto.com/id/953970566/photo/making-a-child-responsible.jpg?s=612x612&w=0&k=20&c=tJ0eNQWncIFEkiADgwtNle8u54cYIVq04NC2mVrCpTY=)](https://ai.invideo.io/watch/B7wehUMGnXB)
 
 ---
 
