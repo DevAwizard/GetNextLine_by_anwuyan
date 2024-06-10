@@ -1,5 +1,7 @@
 # Get next line (GNL) Documentation
 
+![cover-get_next_line](https://github.com/DevAwizard/GetNextLine_by_anwuyan/assets/153505451/076e04c2-21d1-4045-ae93-bc6514e5724d)
+
 This documentation outlines the journey of developing the Get Next Line (GNL) project, a program designed to read a line from a file descriptor efficiently. The project focuses on memory management, efficient read operations, and adherence to specific functional and non-functional requirements.
 
 <img src="https://img.shields.io/badge/42-%23000000.svg?&style=for-the-badge&logo=42&logoColor=white" /> <img src="https://img.shields.io/badge/c-%23A8B9CC.svg?&style=for-the-badge&logo=c&logoColor=black" /> <img src="https://img.shields.io/badge/markdown-%23000000.svg?&style=for-the-badge&logo=markdown&logoColor=white" />
